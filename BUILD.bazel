@@ -20,6 +20,9 @@ cc_library(
 	],
 	deps = [
 		"@com_github_bazelboost_config//:config",
-		"@com_github_bazelboost_winapi//:winapi"
+		"@com_github_bazelboost_asio//:asio",
+		"@com_github_bazelboost_winapi//:winapi",
+		"@com_github_bazelboost_assert//:assert",
+		"@com_github_bazelboost_core//:core"
 	],
 )
