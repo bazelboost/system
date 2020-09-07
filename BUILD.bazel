@@ -1,0 +1,28 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_public_hdrs = [
+    "include/boost/*.hpp",
+    "include/boost/system/*.hpp",
+]
+
+cc_library(
+    name = "system_internal",
+    hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
+    deps = [
+        "@boost//config",
+        "@boost//winapi",
+    ],
+)
+
+cc_library(
+    name = "system",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    hdrs = glob(_public_hdrs),
+    srcs = glob(["src/*"]),
+    deps = [
+        ":system_internal",
+        "@boost//config",
+        "@boost//winapi",
+    ],
+)
