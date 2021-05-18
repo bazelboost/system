@@ -9,8 +9,8 @@ cc_library(
     name = "system_internal",
     hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
     deps = [
-        "@boost//config",
-        "@boost//winapi",
+        "@boost//libs/config",
+        "@boost//libs/winapi",
     ],
 )
 
@@ -22,7 +22,7 @@ cc_library(
     srcs = glob(["src/*"]),
     deps = [
         ":system_internal",
-        "@boost//config",
-        "@boost//winapi",
+        "@boost//libs/config",
+        "@boost//libs/winapi",
     ],
 )
